@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using xTile;
+using xTile.Display;
+using xTile.Tiles;
 
 namespace BomberMan
 {
@@ -18,9 +21,16 @@ namespace BomberMan
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Map map;
+        BomberMan bomberman1;
+        BomberMan bomberman2;
+        IDisplayDevice xnaDisplayDevice;
+        xTile.Dimensions.Rectangle viewport;
 
         public Game1()
         {
+
+
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -34,7 +44,8 @@ namespace BomberMan
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            xnaDisplayDevice = new xTile.Display.XnaDisplayDevice(Content, GraphicsDevice);
+            viewport = new xTile.Dimensions.Rectangle(new xTile.Dimensions.Size(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height));
             base.Initialize();
         }
 
@@ -46,8 +57,12 @@ namespace BomberMan
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            map = Content.Load<Map>("Map1");
+            map.LoadTileSheets(xnaDisplayDevice);
             // TODO: use this.Content to load your game content here
+
+            bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right);
+
         }
 
         /// <summary>
@@ -81,8 +96,8 @@ namespace BomberMan
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GraphicsDevice.Clear(Color.Green);
+            map.Draw(xnaDisplayDevice, viewport);
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
