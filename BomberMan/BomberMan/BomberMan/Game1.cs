@@ -62,7 +62,7 @@ namespace BomberMan
             // TODO: use this.Content to load your game content here
 
             bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right);
-
+            bomberman2 = new BomberMan(Keys.W, Keys.S, Keys.A, Keys.D);
         }
 
         /// <summary>
@@ -85,6 +85,8 @@ namespace BomberMan
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -96,7 +98,7 @@ namespace BomberMan
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Green);
+            GraphicsDevice.Clear(Color.DarkGreen);
             map.Draw(xnaDisplayDevice, viewport);
             // TODO: Add your drawing code here
 
