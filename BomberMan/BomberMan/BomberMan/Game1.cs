@@ -21,6 +21,8 @@ namespace BomberMan
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public Texture2D P1Sheet;
+        public Texture2D P2Sheet;
         Map map;
         BomberMan bomberman1;
         BomberMan bomberman2;
@@ -32,6 +34,10 @@ namespace BomberMan
 
 
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.ApplyChanges();
+
             Content.RootDirectory = "Content";
         }
 
@@ -57,12 +63,14 @@ namespace BomberMan
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            P1Sheet = Content.Load<Texture2D>(@"P1");
+            P2Sheet = Content.Load<Texture2D>(@"P2");
             map = Content.Load<Map>("Map1");
             map.LoadTileSheets(xnaDisplayDevice);
             // TODO: use this.Content to load your game content here
-
-            bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right);
-            bomberman2 = new BomberMan(Keys.W, Keys.S, Keys.A, Keys.D);
+             
+            bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right, new Vector2(0, 35), P1Sheet, new Rectangle(2, 0, 16, 26), new Vector2(32, 0));
+            bomberman2 = new BomberMan(Keys.W, Keys.S, Keys.A, Keys.D, new Vector2(800, 740), P2Sheet, new Rectangle(2, 0, 16, 26), new Vector2(-32, 0));
         }
 
         /// <summary>
@@ -86,6 +94,8 @@ namespace BomberMan
                 this.Exit();
 
 
+            bomberman1.Update(gameTime);
+            bomberman2.Update(gameTime);
 
             // TODO: Add your update logic here
 
@@ -101,6 +111,11 @@ namespace BomberMan
             GraphicsDevice.Clear(Color.DarkGreen);
             map.Draw(xnaDisplayDevice, viewport);
             // TODO: Add your drawing code here
+
+            spriteBatch.Begin();
+            bomberman1.Draw(spriteBatch);
+            bomberman2.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

@@ -22,7 +22,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\bin\x86\Debug\Content\P1.xnb</Output>
-      <Time>2013-12-12T07:36:48.387-05:00</Time>
+      <Time>2013-12-16T07:49:37.4988-05:00</Time>
     </Item>
     <Item>
       <Source>P2.png</Source>
@@ -31,7 +31,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\bin\x86\Debug\Content\P2.xnb</Output>
-      <Time>2013-12-12T07:36:50.967-05:00</Time>
+      <Time>2013-12-16T07:49:37.4988-05:00</Time>
     </Item>
     <Item>
       <Source>breakout.png</Source>
