@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using xTile;
 using xTile.Display;
 using xTile.Tiles;
+using xTile.Layers;
 
 namespace BomberMan
 {
@@ -68,9 +69,9 @@ namespace BomberMan
             map = Content.Load<Map>("Map1");
             map.LoadTileSheets(xnaDisplayDevice);
             // TODO: use this.Content to load your game content here
-             
-            bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right, new Vector2(0, 35), P1Sheet, new Rectangle(2, 0, 16, 26), new Vector2(32, 0));
-            bomberman2 = new BomberMan(Keys.W, Keys.S, Keys.A, Keys.D, new Vector2(800, 740), P2Sheet, new Rectangle(2, 0, 16, 26), new Vector2(-32, 0));
+           
+            bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right, new Vector2(32, 32), P1Sheet, new Rectangle(0, 0, 32, 32), Vector2.Zero, map.Layers[0]);
+            bomberman2 = new BomberMan(Keys.W, Keys.S, Keys.A, Keys.D, new Vector2(22 * 32, 23 * 32), P2Sheet, new Rectangle(0, 0, 32, 32), Vector2.Zero, map.Layers[0]);
         }
 
         /// <summary>

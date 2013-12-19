@@ -110,7 +110,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bomb.cs" />
     <Compile Include="BomberMan.cs" />
+    <Compile Include="DestroyableObject.cs" />
+    <Compile Include="MapObject.cs" />
+    <Compile Include="MazeActor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
