@@ -14,9 +14,28 @@ namespace BomberMan
     class BomberMan : MazeActor
     {
         Keys UpKey, DownKey, LeftKey, RightKey;
-        int speed = 100;
+
         Direction direction;
         Vector2 target;
+        private bool tagged;
+
+        public bool Tagged 
+        {
+            get { return tagged; }
+            set
+            {
+                if (value && !tagged)
+                {
+                    speed += 60;
+                }
+                else if (!value && tagged)
+                {
+                    speed -= 60;
+                }
+
+                tagged = value;
+            }
+        }
 
         public BomberMan(Keys UpKey, Keys DownKey, Keys LeftKey, Keys RightKey, 
                          Vector2 location,
@@ -35,6 +54,8 @@ namespace BomberMan
 
             if (tile != null && tile.TileIndex == 28)
                 map.Tiles[0, 0] = null;
+
+            this.Tagged = false;
 
         }
 

@@ -72,6 +72,8 @@ namespace BomberMan
            
             bomberman1 = new BomberMan(Keys.Up, Keys.Down, Keys.Left, Keys.Right, new Vector2(32, 32), P1Sheet, new Rectangle(0, 0, 32, 32), Vector2.Zero, map.Layers[0]);
             bomberman2 = new BomberMan(Keys.W, Keys.S, Keys.A, Keys.D, new Vector2(22 * 32, 23 * 32), P2Sheet, new Rectangle(0, 0, 32, 32), Vector2.Zero, map.Layers[0]);
+
+            bomberman1.Tagged = true;
         }
 
         /// <summary>
@@ -97,6 +99,25 @@ namespace BomberMan
 
             bomberman1.Update(gameTime);
             bomberman2.Update(gameTime);
+
+            if (bomberman1.IsBoxColliding(bomberman2.BoundingBoxRect))
+            {
+                // The two are colliding
+                bomberman1.Tagged = !bomberman1.Tagged;
+                bomberman2.Tagged = !bomberman2.Tagged;
+
+                if (bomberman1.Tagged)
+                    
+                {
+                    // Relocate bomberman2
+                    bomberman2.location = new Vector2(32,32);
+                }
+                else
+                {
+                    // Relocate bomberman1
+                    bomberman1.location = new Vector2(-32,32);
+                }
+            }
 
             // TODO: Add your update logic here
 

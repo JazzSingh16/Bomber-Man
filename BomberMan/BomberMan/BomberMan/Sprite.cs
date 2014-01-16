@@ -25,8 +25,8 @@ namespace BomberMan
         public int BoundingXPadding = 0;
         public int BoundingYPadding = 0;
 
-        protected Vector2 location = Vector2.Zero;
-        protected Vector2 velocity = Vector2.Zero;
+        public Vector2 location = Vector2.Zero;
+        public Vector2 velocity = Vector2.Zero;
 
        
 

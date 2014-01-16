@@ -9,4 +9,3 @@ C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\bin\x8
 C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\bin\x86\Debug\xTile.dll
 C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\obj\x86\Debug\BomberMan.exe
 C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\obj\x86\Debug\BomberMan.pdb
-C:\Users\eahscs\Documents\GitHub\Bomber-Man\BomberMan\BomberMan\BomberMan\bin\x86\Debug\Content\Bomb.xnb
