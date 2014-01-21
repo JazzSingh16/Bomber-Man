@@ -110,14 +110,16 @@ namespace BomberMan
                     
                 {
                     // Relocate bomberman2
-                    bomberman2.location = new Vector2(32,32);
+                    bomberman2.location = new Vector2(23 * 32, 23 * 32);
                 }
                 else
                 {
                     // Relocate bomberman1
-                    bomberman1.location = new Vector2(-32,32);
+                    bomberman1.location = new Vector2(32,32);
                 }
             }
+
+         
 
             // TODO: Add your update logic here
 
